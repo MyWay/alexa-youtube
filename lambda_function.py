@@ -9,7 +9,7 @@ import json
 import urllib
 from time import time
 logging.getLogger('googleapiclient.discovery_cache').setLevel(logging.ERROR)
-DEVELOPER_KEY=environ['YOUTUBE_DEVELOPER_KEY']
+DEVELOPER_KEY='AIzaSyADUyEBZQ_Kw7MwBKLrkFT-Bbsj46TPRpg'
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
