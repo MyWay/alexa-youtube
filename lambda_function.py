@@ -9,7 +9,7 @@ import json
 import urllib
 from time import time
 logging.getLogger('googleapiclient.discovery_cache').setLevel(logging.ERROR)
-DEVELOPER_KEY=environ['DEVELOPER_KEY']
+DEVELOPER_KEY=environ['YOUTUBE_DEVELOPER_KEY']
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
@@ -248,19 +248,19 @@ def handle_playback(event):
 # --------------- Functions that control the skill's behavior ------------------
 
 def get_welcome_response():
-    speech_output = 'Welcome to Youtube. Say, for example, play videos by The Beatles.'
-    reprompt_text = 'Or you can say, shuffle songs by Michael Jackson.'
+    speech_output = 'Benvenuto su Youtube. Puoi dire, ad esempio, metti musica di Vasco Rossi, o metti Vasco Rossi.'
+    reprompt_text = 'Oppure puoi dire, mescola canzoni di Michael Jackson.'
     should_end_session = False
     return build_response(build_cardless_speechlet_response(speech_output, reprompt_text, should_end_session))
         
 def get_help():
-    speech_output = 'For example say, play videos by Fall Out Boy'
-    card_title = 'Youtube Help'
+    speech_output = 'Per esempio, puoi dire, metti video di Marco Montemagno'
+    card_title = 'Youtube Aiuto'
     should_end_session = False
     return build_response(build_speechlet_response(card_title, speech_output, None, should_end_session))
             
 def illegal_action():
-    speech_output = 'You can\'t do that with this skill.'
+    speech_output = 'Non puoi farlo con questa skill.'
     should_end_session = True
     return build_response(build_short_speechlet_response(speech_output, should_end_session))
         
@@ -353,7 +353,7 @@ def get_live_video_url_and_title(id):
 def yes_intent(session):
     sessionAttributes = session.get('attributes')
     if not sessionAttributes or 'intent' not in sessionAttributes or 'sr' not in sessionAttributes:
-        return build_response(build_cardless_speechlet_response("Sorry, something's gone wrong", None, True))
+        return build_response(build_cardless_speechlet_response("Spiacenti, qualcosa è andato storto", None, True))
     intent = sessionAttributes['intent']
     session['attributes']['sr'] = sessionAttributes['sr'] + 1
     return search(intent, session)
@@ -394,15 +394,15 @@ def search(intent, session):
             next_url, title = get_url_and_title(id)
     next_token = convert_dict_to_token(playlist)
     if playlist_title is None:
-        speech_output = "Playing " + title
+        speech_output = "Suonando " + title
     else:
-        speech_output = "Playing " + playlist_title
+        speech_output = "Suonando " + playlist_title
     card_title = "Youtube"
     return build_response(build_audio_speechlet_response(card_title, speech_output, should_end_session, next_url, next_token))
 
 def stop(intent, session):
     should_end_session = True
-    speech_output = "Pausing"
+    speech_output = "Mettendo in pausa"
     return build_response(build_stop_speechlet_response(speech_output, should_end_session))
 
 def nearly_finished(event):
@@ -423,9 +423,9 @@ def skip_action(event, skip):
     current_token = event['context']['AudioPlayer']['token']
     next_url, next_token, title = get_next_url_and_token(current_token, skip)
     if title is None:
-        speech_output = "There are no more items in the playlist."
+        speech_output = "Non ci sono più elementi nella playlist."
         return build_response(build_short_speechlet_response(speech_output, should_end_session))
-    speech_output = 'Playing '+title
+    speech_output = 'Suonando '+title
     return build_response(build_cardless_audio_speechlet_response(speech_output, should_end_session, next_url, next_token))
 
 def resume(event, say_title = False):
@@ -433,11 +433,11 @@ def resume(event, say_title = False):
         return get_welcome_response()
     current_token = event['context']['AudioPlayer']['token']
     should_end_session = True
-    speech_output = "Resuming..."
+    speech_output = "Riprendendo..."
     offsetInMilliseconds = event['context']['AudioPlayer']['offsetInMilliseconds']
     next_url, next_token, title = get_next_url_and_token(current_token, 0)
     if title is None:
-        speech_output = "I wasn't able to resume playing."
+        speech_output = "Non è stato possibile riprendere a suonare."
         return build_response(build_short_speechlet_response(speech_output, should_end_session))
     return build_response(build_cardless_audio_speechlet_response(speech_output, should_end_session, next_url, current_token, offsetInMilliseconds))
 
@@ -457,7 +457,7 @@ def start_over(event):
     should_end_session = True
     next_url, next_token, title = get_next_url_and_token(current_token, 0)
     if title is None:
-        speech_output = "I wasn't able to play a video."
+        speech_output = "Non sono riuscita a suonare il video."
         return build_response(build_short_speechlet_response(speech_output, should_end_session))
     speech_output = "Playing " + title    
     return build_response(build_cardless_audio_speechlet_response(speech_output, should_end_session, next_url, next_token))
@@ -468,11 +468,11 @@ def say_video_title(event):
         current_token = event['context']['AudioPlayer']['token']
         next_url, next_token, title = get_next_url_and_token(current_token, 0)
         if title is None:
-            speech_output = "I can't find out the name of the current video."
+            speech_output = "Non riesco a trovare il nome del video."
         else:
-            speech_output = "Now playing "+title
+            speech_output = "Sto suonando "+title
     else:
-        speech_output = "Nothing is currently playing."
+        speech_output = "Non c'è in onda alcuna canzone."
     return build_response(build_short_speechlet_response(speech_output, should_end_session))
     
 def convert_token_to_dict(token):
