@@ -32,6 +32,11 @@
                         }
                     ],
                     "samples": [
+                        "di ascoltare {query}",
+                        "di ascoltare la canzone {query}",
+                        "di ascoltare la canzone di {query}",
+                        "di ascoltare le canzoni {query}",
+                        "di ascoltare le canzoni di {query}",
                         "di cercare {query}",
                         "di cercare musica di {query}",
                         "di cercare canzone di {query}",
