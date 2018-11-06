@@ -32,6 +32,21 @@
                         }
                     ],
                     "samples": [
+                        "di mettere {query}",
+                        "di mettere musica {query}",
+                        "di mettere musica di {query}",
+                        "di mettere musica dei {query}",
+                        "di mettere la musica di {query}",
+                        "di mettere la musica dei {query}",
+                        "di mettere canzoni {query}",
+                        "di mettere canzone {query}",
+                        "di mettere la canzone {query}",
+                        "di mettere la canzone di {query}",
+                        "di mettere la canzone dei {query}",
+                        "di mettere canzoni di {query}",
+                        "di mettere canzoni dei {query}",
+                        "di mettere le canzoni di {query}",
+                        "di mettere le canzoni dei {query}",
                         "metti musica di {query}",
                         "metti canzoni di {query}",
                         "metti canzone di {query}",
@@ -61,6 +76,11 @@
                         }
                     ],
                     "samples": [
+                        "di mescolare {query}",
+                        "di mescolare le canzoni di {query}",
+                        "di mescolare le canzoni dei {query}",
+                        "di mescolare la musica di {query}",
+                        "di mescolare la musica dei {query}",
                         "mescola {query}",
                         "mescola le canzoni di {query}",
                         "mescola la musica di {query}",
@@ -119,7 +139,7 @@
                     "samples": [
                         "Mescola canale {query}"
                     ]
-                },
+                },"di mettere la musica di {query}",
                 {
                     "name": "NowPlayingIntent",
                     "slots": [],
