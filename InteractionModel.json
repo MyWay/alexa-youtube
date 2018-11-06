@@ -32,11 +32,24 @@
                         }
                     ],
                     "samples": [
-                        "play music by {query}",
-                        "play songs by {query}",
-                        "play videos by {query}",
-                        "search for {query}",
-                        "Play {query}"
+                        "metti musica di {query}",
+                        "metti canzoni di {query}",
+                        "metti canzone di {query}",
+                        "metti la canzone di {query}",
+                        "metti canzone {query}",
+                        "suona musica di {query}",
+                        "suona canzoni di {query}",
+                        "suona canzone di {query}",
+                        "suona la canzone di {query}",
+                        "suona canzone {query}",
+                        "canzone di {query}",
+                        "canzone {query}",
+                        "metti il video di {query}",
+                        "metti video di {query}",
+                        "metti video {query}",
+                        "cera {query}",
+                        "suona {query}",
+                        "metti {query}"
                     ]
                 },
                 {
@@ -48,10 +61,10 @@
                         }
                     ],
                     "samples": [
-                        "shuffle {query}",
-                        "shuffle songs by {query}",
-                        "shuffle music by {query}",
-                        "shuffle videos by {query}"
+                        "mescola {query}",
+                        "mescola le canzoni di {query}",
+                        "mescola la musica di {query}",
+                        "mescola i video di {query}"
                     ]
                 },
                 {
@@ -63,9 +76,9 @@
                         }
                     ],
                     "samples": [
-                        "Start playlist {query}",
-                        "Listen to playlist {query}",
-                        "Play playlist {query}"
+                        "Metti playlist {query}",
+                        "Ascolta la playlist {query}",
+                        "Suona playlist {query}"
                     ]
                 },
                 {
@@ -77,7 +90,7 @@
                         }
                     ],
                     "samples": [
-                        "Shuffle playlist {query}"
+                        "Mescola playlist {query}"
                     ]
                 },
                 {
@@ -89,9 +102,10 @@
                         }
                     ],
                     "samples": [
-                        "Listen to channel {query}",
-                        "Start channel {query} ",
-                        "Play channel {query}"
+                        "Ascolta il canale {query}",
+                        "Ascolta canale {query} ",
+                        "Suona canale {query}",
+                        "Suona il canale {query}"
                     ]
                 },
                 {
@@ -103,18 +117,21 @@
                         }
                     ],
                     "samples": [
-                        "Shuffle channel {query}"
+                        "Mescola canale {query}"
                     ]
                 },
                 {
                     "name": "NowPlayingIntent",
                     "slots": [],
                     "samples": [
-                        "Who is this",
-                        "What video is playing",
-                        "What song is playing",
-                        "What is this",
-                        "What is playing"
+                        "Chi è questo",
+                        "Che canzone è",
+                        "Che canzone stai riproducendo",
+                        "Che canzone c'è in onda",
+                        "Che canzone è in onda",
+                        "Cos'è questo",
+                        "Cosa sta suonando",
+                        "Cosa sta andando in onda"
                     ]
                 },
                 {
